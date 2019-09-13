@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { NavigationCancel,
+import {
+  NavigationCancel,
   Event,
   NavigationEnd,
   NavigationError,
   NavigationStart,
-  Router } from '@angular/router';
+  Router
+} from '@angular/router';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 
 @Component({
@@ -15,7 +17,7 @@ import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 export class AppComponent {
   title = 'Angular8crudwithNode';
 
-  constructor(private loadingBar: SlimLoadingBarService, private router: Router){
+  constructor(private loadingBar: SlimLoadingBarService, private router: Router) {
     this.router.events.subscribe((event: Event) => {
       this.navigationInterceptor(event);
     });

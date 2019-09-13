@@ -12,8 +12,8 @@ let Product = new Schema({
   ProductPrice: {
     type: Number
   }
-},{
+}, {
     collection: 'Product'
-});
+  });
 
 module.exports = mongoose.model('Product', Product);

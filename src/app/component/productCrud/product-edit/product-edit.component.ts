@@ -13,29 +13,29 @@ export class ProductEditComponent implements OnInit {
   product: any = {};
   constructor(private route: ActivatedRoute, private router: Router, private ps: ProductsService, private fb: FormBuilder) {
     this.createForm();
-}
+  }
 
-createForm() {
-  this.angForm = this.fb.group({
-    ProductName: ['', Validators.required ],
-    ProductDescription: ['', Validators.required ],
-    ProductPrice: ['', Validators.required ]
-  });
-}
+  createForm() {
+    this.angForm = this.fb.group({
+      ProductName: ['', Validators.required],
+      ProductDescription: ['', Validators.required],
+      ProductPrice: ['', Validators.required]
+    });
+  }
 
-updateProduct(ProductName, ProductDescription, ProductPrice, id) {
-  this.route.params.subscribe(params => {
-    this.ps.updateProduct(ProductName, ProductDescription, ProductPrice, params.id);
-    this.router.navigate(['products']);
-  });
-}
+  updateProduct(ProductName, ProductDescription, ProductPrice, id) {
+    this.route.params.subscribe(params => {
+      this.ps.updateProduct(ProductName, ProductDescription, ProductPrice, params.id);
+      this.router.navigate(['products']);
+    });
+  }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.ps.editProduct(params['id']).subscribe(res => {
         this.product = res;
+      });
     });
-  });
   }
 
 }
